@@ -1,5 +1,5 @@
 ﻿# Chatify-app
- ![image](https://github.com/user-attachments/assets/96912805-146b-4bf3-9ef2-fb8a549ccf8b)
+![image](/frontend/public/chat-app-image.png)
 
 A fast real-time chat application built with Socket.io, TypeScript, Vite, and Tailwind CSS. This application allows anyone to create and join chat rooms to communicate anonymously or with a chosen name.
 

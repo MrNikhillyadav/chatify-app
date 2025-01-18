@@ -98,7 +98,7 @@ function Room() {
   }
 
   return (
-    <div className=" flex flex-col max-w-[1080px] rounded-lg my-2 m-auto bg-cartoon-bg text-cartoon-text">
+    <div className=" flex flex-col max-w-[1280px] rounded-lg my-2 m-auto bg-cartoon-bg text-cartoon-text">
       <div className="h-screen flex flex-col bg-cartoon-bg text-cartoon-text rounded-lg ">
          {/* Header */}
       <div className="sticky top-0 z-10 bg-cartoon-light/80 backdrop-blur-sm shadow-md border-b-red-100 rounded-lg   border-cartoon-accent/20">

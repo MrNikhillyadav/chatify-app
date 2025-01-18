@@ -21,8 +21,8 @@ export default {
       colors: {
         // Airbnb-inspired theme colors with more moderate tones
         cartoon: {
-          bg: "#F7F7F7", // Light gray background
-          accent: "#FF5A5F", // Airbnb signature red
+          bg: "#eaf4f4", // Light gray background
+          accent: "#2d00f7", // Airbnb signature red
           text: "#484848", // Dark gray text
           light: "#FFFFFF", // White
           muted: "#767676", // Medium gray for secondary text

@@ -18,7 +18,7 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-cartoon-bg">
+    <div className="min-h-screen border flex flex-col justify-center items-center bg-cartoon-bg">
       <div className="bg-cartoon-light p-8 rounded-[2rem] shadow-2xl text-center w-full max-w-md mx-4 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cartoon-accent/30 to-cartoon-accent" />
 

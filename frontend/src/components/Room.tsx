@@ -98,9 +98,10 @@ function Room() {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-cartoon-bg text-cartoon-text">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-cartoon-light/80 backdrop-blur-lg shadow-lg border-b-2 border-cartoon-accent/20">
+    <div className=" flex flex-col max-w-[1080px] rounded-lg my-2 m-auto bg-cartoon-bg text-cartoon-text">
+      <div className="h-screen flex flex-col bg-cartoon-bg text-cartoon-text rounded-lg ">
+         {/* Header */}
+      <div className="sticky top-0 z-10 bg-cartoon-light/80 backdrop-blur-sm shadow-md border-b-red-100 rounded-lg   border-cartoon-accent/20">
         <div className="flex justify-between items-center p-4">
           <div className="flex items-center gap-4">
             <button
@@ -169,10 +170,10 @@ function Room() {
       </div>
 
       {/* Input Section */}
-      <div className="border-t-2 border-cartoon-accent/20 bg-cartoon-light p-4 space-y-4">
-        <div>
-          <label className="text-sm text-cartoon-text block mb-2">
-            Your Name
+      <div className="border-t-2 rounded-md border-cartoon-accent/20 bg-cartoon-light p-2 space-y-2 mb-2">
+        <div className="  max-w-[400px]">
+          <label className="text-sm text-cartoon-text block ">
+            Enter Your Name
           </label>
           <input
             type="text"
@@ -186,7 +187,7 @@ function Room() {
           />
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3  max-w-[800px]">
           <input
             className="flex-1 px-4 py-3 bg-cartoon-bg/50 border-2 border-cartoon-accent/20 rounded-xl
                      text-cartoon-text placeholder-cartoon-text/60
@@ -210,6 +211,7 @@ function Room() {
             <span className="hidden sm:inline">Send</span>
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

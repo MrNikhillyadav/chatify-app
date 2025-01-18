@@ -10,6 +10,7 @@ wss.on("connection", (socket) => {
             allSockets.push({
                 socket,
                 room: parsedMessage.payload.roomId,
+                name: parsedMessage.payload.name,
             });
         }
         if (parsedMessage.type === "chat") {

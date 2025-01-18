@@ -1,7 +1,7 @@
-﻿# Chibi-chat
+﻿# Chatify-app
  ![image](https://github.com/user-attachments/assets/96912805-146b-4bf3-9ef2-fb8a549ccf8b)
 
-A lightweight and fast real-time chat application built with Socket.io, TypeScript, Vite, and Tailwind CSS. This application allows anyone to create and join chat rooms to communicate anonymously or with a chosen name.
+A fast real-time chat application built with Socket.io, TypeScript, Vite, and Tailwind CSS. This application allows anyone to create and join chat rooms to communicate anonymously or with a chosen name.
 
 ## Features
 - 🌐 Real-Time Chat: Seamless and instant messaging powered by Socket.io.
@@ -9,6 +9,7 @@ A lightweight and fast real-time chat application built with Socket.io, TypeScri
 - 👤 Anonymous or Named Chat: Chat anonymously or set a display name.
 - ⚡ Fast and Responsive: Built with Vite for a smooth development experience and optimized performance.
 - 🎨 Customizable UI: Styled with Tailwind CSS for modern and responsive design.
+  
 ## Technologies Used
 Socket.io: For real-time, bidirectional communication.
 TypeScript: For type safety and better development experience.
@@ -19,7 +20,7 @@ Follow these steps to run the application locally.
 
 ## Prerequisites
 Node.js (v14+)
-npm or yarn
+npm 
 Installation
 Clone the repository:
 

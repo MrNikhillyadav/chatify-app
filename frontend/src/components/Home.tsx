@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MessageSquare, Sparkles } from "lucide-react";
-import Image from 'react'
 import { toast } from "sonner";
+import { Sparkles } from "lucide-react";
 
 const Home = () => {
   const [room, setRoom] = useState("");

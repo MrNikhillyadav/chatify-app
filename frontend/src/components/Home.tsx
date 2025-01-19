@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, Sparkles } from "lucide-react";
+import Image from 'react'
 import { toast } from "sonner";
 
 const Home = () => {
@@ -19,12 +20,18 @@ const Home = () => {
 
   return (
     <div className="min-h-screen border flex flex-col justify-center items-center bg-cartoon-bg">
-      <div className="bg-cartoon-light p-8 rounded-[2rem] shadow-2xl text-center w-full max-w-md mx-4 relative overflow-hidden">
+      <div className="bg-cartoon-light p-8 rounded-[1.5rem] shadow-xl text-center w-full max-w-md mx-4 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cartoon-accent/30 to-cartoon-accent" />
 
-        <div className="flex justify-center mb-8">
-          <div className="p-4 bg-cartoon-accent/10 rounded-2xl animate-float">
-            <MessageSquare className="w-12 h-12 text-cartoon-accent" />
+        <div className="flex justify-center ">
+          <div className="p-2 rounded-2xl animate-float">
+            {/* <MessageSquare className="w-12 h-12 text-cartoon-accent" /> */}
+            <img
+              src="/chat.gif"
+              width={80}
+              height={80}
+              alt="Picture of the author"
+            />
           </div>
         </div>
 

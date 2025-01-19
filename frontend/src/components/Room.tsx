@@ -102,7 +102,7 @@ function Room() {
       <div className="h-screen flex flex-col bg-cartoon-bg text-cartoon-text rounded-lg ">
          {/* Header */}
       <div className="sticky top-0 z-10 bg-cartoon-light/80 backdrop-blur-sm shadow-md border-b-red-100 rounded-lg   border-cartoon-accent/20">
-        <div className="flex justify-between items-center p-4">
+        <div className="flex justify-between items-center p-3">
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate("/")}
@@ -110,13 +110,22 @@ function Room() {
             >
               <ArrowLeft className="w-6 h-6" />
             </button>
-            <div>
-              <h1 className="text-xl font-bold text-cartoon-accent">
-                Room: {roomId}
+            <div >
+              <div className="flex gap-2">
+              <h1 className="text-xl inline-flex  font-bold text-cartoon-accent">
+                Room: {roomId}  
               </h1>
-              <p className="text-sm text-cartoon-text">
-                Chatting as {name?.trim() || "Anonymous"}
-              </p>
+                  <img
+                  src="/chat.gif"
+                  width={35}
+                  height={20}
+                  alt="Picture of the author"
+                />
+
+              </div>
+                  <p className="text-sm text-cartoon-text">
+                    Chatting as {name?.trim() || "Anonymous"}
+                  </p>
             </div>
           </div>
           <div className="flex gap-4">
@@ -180,7 +189,7 @@ function Room() {
             placeholder="Enter your name"
             value={name || ""}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 bg-cartoon-bg/50 border-2 border-cartoon-accent/20 rounded-xl
+            className="w-full px-4 py-2 bg-cartoon-bg/50 border-2 border-cartoon-accent/20 rounded-xl
                      text-cartoon-text placeholder-cartoon-text/60
                      focus:ring-4 focus:ring-cartoon-accent/20 focus:border-cartoon-accent
                      outline-none transition-all"
@@ -189,7 +198,7 @@ function Room() {
 
         <div className="flex gap-3  max-w-[800px]">
           <input
-            className="flex-1 px-4 py-3 bg-cartoon-bg/50 border-2 border-cartoon-accent/20 rounded-xl
+            className="flex-1 px-4 py-2 bg-cartoon-bg/50 border-2 border-cartoon-accent/20 rounded-xl
                      text-cartoon-text placeholder-cartoon-text/60
                      focus:ring-4 focus:ring-cartoon-accent/20 focus:border-cartoon-accent
                      outline-none transition-all"

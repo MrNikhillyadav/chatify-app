@@ -1,7 +1,8 @@
-﻿# Chatify-app
+A fast real-time chat application that allows anyone to create and join chat rooms to communicate anonymously or with a chosen name.
+ # Chatify-app
 ![image](/frontend/public/chat-app-image.png)
 
-A fast real-time chat application built with Socket.io, TypeScript, Vite, and Tailwind CSS. This application allows anyone to create and join chat rooms to communicate anonymously or with a chosen name.
+
 
 ## Features
 - 🌐 Real-Time Chat: Seamless and instant messaging powered by Socket.io.

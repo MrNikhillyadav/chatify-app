@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: 'bricolage'; 
+    src: url('../public/fonts/font1.woff2'); 
+}
+
+
+body {
+  font-family: bricolage;
+}

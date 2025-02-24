@@ -63,6 +63,9 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        bricolage: ['var(--bricolage-font)'],
+        },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -1,6 +1,7 @@
 A fast real-time chat application that allows anyone to create and join chat rooms to communicate anonymously or with a chosen name.
  # Chatify-app
-![image](/frontend/public/chat-app-image.png)
+![image](/frontend/public/home.png)
+![image](/frontend/public/chat.png)
 
 
 

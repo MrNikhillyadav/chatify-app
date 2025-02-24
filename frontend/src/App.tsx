@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Toaster
-        position="top-center"
+        position="top-right"
         expand={true}
         richColors
         theme="light"

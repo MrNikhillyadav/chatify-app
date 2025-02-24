@@ -23,7 +23,6 @@ const Home = () => {
     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600 rounded-full opacity-20 blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
     <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-blue-600 rounded-full opacity-20 blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
     
-    
 
     <div className="bg-zinc-900/90 backdrop-blur-md p-8 rounded-xl shadow-2xl text-center w-full max-w-md mx-4 relative overflow-hidden border border-zinc-800">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-blue-500" />
@@ -66,7 +65,7 @@ const Home = () => {
           onClick={() => {
             const newRoom = generateRoomId();
             setRoom(newRoom);
-            showNotification(`Room created: ${newRoom}`);
+            toast.message(`Room created: ${newRoom}`);
           }}
           className="w-full bg-gradient-to-r from-zinc-800 to-zinc-900 font-medium py-3 px-6 rounded-lg text-sm
                    text-white border border-zinc-700/50 backdrop-blur-sm

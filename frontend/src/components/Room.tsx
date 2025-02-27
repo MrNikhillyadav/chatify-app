@@ -16,8 +16,8 @@ function Room() {
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([
     {
-      message: "Welcome to the chat room! 👋",
-      name: "System",
+      message: "Share roomId & start chatting! 👋",
+      name: "Server",
     },
   ]);
   const [isNameModalOpen, setIsNameModalOpen] = useState<boolean>(false);
@@ -227,7 +227,7 @@ function Room() {
               >
                 <div className="text-sm opacity-75 mb-1 flex items-center gap-2">
                   {msg.name}
-                  {msg.name === "System" && <Sparkles className="w-3 h-3" />}
+                  {msg.name === "Server" && <Sparkles className="w-3 h-3" />}
                 </div>
                 <div className="break-words">{msg.message}</div>
               </div>

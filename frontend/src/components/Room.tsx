@@ -24,6 +24,12 @@ function Room() {
   const [tempName, setTempName] = useState<string>("");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Focus input when component mounts
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     const ws = new WebSocket("https://chibi-chat.onrender.com");
@@ -64,6 +70,7 @@ function Room() {
     };
   }, [roomId]);
 
+  // Scroll to bottom and focus input when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -82,6 +89,11 @@ function Room() {
     );
 
     setMessage("");
+    
+    // Focus on input after sending message
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
   }
 
   const shareRoom = async () => {
@@ -110,6 +122,11 @@ function Room() {
       toast.success("Name updated successfully!");
     }
     setIsNameModalOpen(false);
+    
+    // Focus back on input after closing modal
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
   }
 
   return (
@@ -139,7 +156,13 @@ function Room() {
             />
             <div className="flex gap-3 justify-end">
               <button
-                onClick={() => setIsNameModalOpen(false)}
+                onClick={() => {
+                  setIsNameModalOpen(false);
+                  // Focus back on input after closing modal
+                  setTimeout(() => {
+                    inputRef.current?.focus();
+                  }, 0);
+                }}
                 className="px-4 py-2 bg-zinc-800 text-white rounded-lg
                            transition-all hover:bg-zinc-700"
               >
@@ -240,6 +263,7 @@ function Room() {
         <div className="bg-zinc-900/90 backdrop-blur-md rounded-b-xl shadow-2xl p-4 border border-zinc-800">
           <div className="flex gap-3">
             <input
+              ref={inputRef}
               className="flex-1 px-4 py-2 bg-zinc-800/70 border border-zinc-700/50 rounded-lg
                          text-white placeholder-zinc-500 text-sm
                          focus:ring-2 focus:ring-purple-500/30 focus:border-purple-500 focus:outline-none

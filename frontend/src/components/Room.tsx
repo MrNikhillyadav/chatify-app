@@ -9,93 +9,95 @@ interface Message {
 }
 
 function Room() {
-  const { roomId } = useParams();
-const navigate = useNavigate();
-const [name, setName] = useState<string | null>(null);
-const [socket, setSocket] = useState<WebSocket | null>(null);
-const [message, setMessage] = useState<string>("");
-const [messages, setMessages] = useState<Message[]>([
-{
-message: "Welcome to the chat room! 👋",
-name: "System",
-},
-]);
+        const { roomId } = useParams();
+      const navigate = useNavigate();
+      const [name, setName] = useState<string | null>(null);
+      const [socket, setSocket] = useState<WebSocket | null>(null);
+      const [message, setMessage] = useState<string>("");
+      const [messages, setMessages] = useState<Message[]>([
+                    {
+                        message: "Welcome to the chat room! 👋",
+                        name: "System",
+                    },
+                  ]);
 
-const messagesEndRef = useRef<HTMLDivElement>(null);
+      const messagesEndRef = useRef<HTMLDivElement>(null);
 
 
 
-useEffect(() => {
-const ws = new WebSocket("https://chibi-chat.onrender.com");
+      useEffect(() => {
+          const ws = new WebSocket("https://chibi-chat.onrender.com");
+            ws.onopen = () => {
+                ws.send(
+                JSON.stringify({
+                type: "join",
+                  payload: {
+                    roomId,
+                  },
+              })
+          );
+      };
 
-ws.onopen = () => {
-ws.send(
-JSON.stringify({
-type: "join",
-payload: {
-roomId,
-},
-})
-);
-};
+      ws.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data);
+            console.log("Received message:", data);
+            setMessages((prev) => [...prev, data.payload]);
+          } 
+          catch (error) {
+            console.error("Error parsing WebSocket message:", error);
+          }
+      };
 
-ws.onmessage = (event) => {
-try {
-const data = JSON.parse(event.data);
-console.log("Received message:", data);
-setMessages((prev) => [...prev, data.payload]);
-} catch (error) {
-console.error("Error parsing WebSocket message:", error);
-}
-};
+      ws.onerror = (error) => {
+          console.error("WebSocket error:", error);
+      };
 
-ws.onerror = (error) => {
-console.error("WebSocket error:", error);
-};
+      ws.onclose = () => {
+          console.log("WebSocket connection closed");
+      };
 
-ws.onclose = () => {
-console.log("WebSocket connection closed");
-};
+      setSocket(ws);
 
-setSocket(ws);
+      return () => {
+          ws.close();
+        };
+      }, [roomId]);
 
-return () => {
-ws.close();
-};
-}, [roomId]);
+      useEffect(() => {
+          messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, [messages]);
 
-useEffect(() => {
-messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-}, [messages]);
+      function sendMessage() {
+          if (!socket || !message.trim()) return;
 
-function sendMessage() {
-if (!socket || !message.trim()) return;
+          socket.send(
+              JSON.stringify({
+                  type: "chat",
+                  payload: {
+                  message: message.trim(),
+                  name: name?.trim() || "Anonymous",
+                  },
+              })
+          );
 
-socket.send(
-JSON.stringify({
-type: "chat",
-payload: {
-message: message.trim(),
-name: name?.trim() || "Anonymous",
-},
-})
-);
+          setMessage("");
+      }
 
-setMessage("");
-}
+      const shareRoom = async () => {
+      const url = `${window.location.origin}/room/${roomId}`;
 
-const shareRoom = async () => {
-const url = `${window.location.origin}/room/${roomId}`;
-try {
-await navigator.clipboard.writeText(url);
-toast.success("Room link copied! Share with friends 🎉");
-} catch (err) {
-toast.error("Oops! Couldn't copy the link");
-}
-};
-function leaveRoom() {
-navigate("/");
-}
+      try {
+        await navigator.clipboard.writeText(url);
+        toast.success("Room link copied! Share with friends 🎉");
+      } catch (err) {
+        toast.error("Oops! Couldn't copy the link");
+      }
+      };
+
+      function leaveRoom() {
+        navigate("/");
+      }
 
   return (
     <div className="min-h-screen flex flex-col bg-black relative overflow-hidden">
@@ -123,7 +125,7 @@ navigate("/");
                   <MessageSquare className="w-5 h-5 text-purple-400" />
                 </div>
                 <p className="text-sm text-zinc-400">
-                  Chatting as {name?.trim() || "Anonymous"}
+                   {name?.trim() || "Anonymous"}
                 </p>
               </div>
             </div>

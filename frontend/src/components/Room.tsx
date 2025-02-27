@@ -27,15 +27,14 @@ function Room() {
 
       useEffect(() => {
           const ws = new WebSocket("https://chibi-chat.onrender.com");
-
             ws.onopen = () => {
-            ws.send(
-            JSON.stringify({
-            type: "join",
-              payload: {
-                roomId,
-              },
-          })
+                ws.send(
+                JSON.stringify({
+                type: "join",
+                  payload: {
+                    roomId,
+                  },
+              })
           );
       };
 
@@ -44,7 +43,8 @@ function Room() {
             const data = JSON.parse(event.data);
             console.log("Received message:", data);
             setMessages((prev) => [...prev, data.payload]);
-          } catch (error) {
+          } 
+          catch (error) {
             console.error("Error parsing WebSocket message:", error);
           }
       };
@@ -72,12 +72,12 @@ function Room() {
           if (!socket || !message.trim()) return;
 
           socket.send(
-          JSON.stringify({
-          type: "chat",
-              payload: {
-              message: message.trim(),
-              name: name?.trim() || "Anonymous",
-              },
+              JSON.stringify({
+                  type: "chat",
+                  payload: {
+                  message: message.trim(),
+                  name: name?.trim() || "Anonymous",
+                  },
               })
           );
 

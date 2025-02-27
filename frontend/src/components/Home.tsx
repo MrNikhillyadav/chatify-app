@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { MessageSquare, Sparkles } from "lucide-react";
 
 const Home = () => {
   const [room, setRoom] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null)
   const navigate = useNavigate();
+
+  useEffect(()=> {
+    inputRef.current?.focus()
+  },[])
 
   const generateRoomId = () => {
     return Math.floor(10000 + Math.random() * 90000).toString();
@@ -43,6 +48,7 @@ const Home = () => {
       <div className="space-y-5">
         <div className="relative">
           <input
+          ref={inputRef}
             className="w-full px-4 py-3 bg-zinc-800/70 backdrop-blur-sm border border-zinc-700/50 rounded-lg
                      text-white placeholder-zinc-500 text-sm
                      focus:ring-2 focus:ring-purple-500/30 focus:border-purple-500 focus:outline-none
